@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<style>
+body{
+    background:#fff0f6;
+}
+
+.card{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.students{
+    background:#ffb6c1;
+}
+
+.teachers{
+    background:#ff69b4;
+    color:white;
+}
+
+.subjects{
+    background:#ff85c1;
+    color:white;
+}
+
+.attendance{
+    background:#ffc0cb;
+}
+
+.present{
+    background:#ff1493;
+    color:white;
+}
+
+.absent{
+    background:#db7093;
+    color:white;
+}
+
+h2{
+    color:#d63384;
+    font-weight:bold;
+}
+</style>
+
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">💖 Student Attendance Dashboard 💖</h2>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+            <div class="card students p-4 text-center">
+                <h1>👩‍🎓</h1>
+                <h4>Total Students</h4>
+                <h2>{{ total_students }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card teachers p-4 text-center">
+                <h1>👩‍🏫</h1>
+                <h4>Total Teachers</h4>
+                <h2>{{ total_teachers }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card subjects p-4 text-center">
+                <h1>📚</h1>
+                <h4>Total Subjects</h4>
+                <h2>{{ total_subjects }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card attendance p-4 text-center">
+                <h1>📝</h1>
+                <h4>Total Attendance</h4>
+                <h2>{{ total_attendance }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card present p-4 text-center">
+                <h1>✅</h1>
+                <h4>Present</h4>
+                <h2>{{ total_present }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card absent p-4 text-center">
+                <h1>❌</h1>
+                <h4>Absent</h4>
+                <h2>{{ total_absent }}</h2>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

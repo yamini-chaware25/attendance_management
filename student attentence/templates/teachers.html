@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card shadow p-4">
+
+<h2 class="mb-4">👩‍🏫 Teachers</h2>
+
+<form method="POST" action="{{ url_for('teachers') }}">
+
+<div class="row">
+
+<div class="col-md-3">
+<input type="text"
+class="form-control"
+name="teacher_name"
+placeholder="Teacher Name"
+required>
+</div>
+
+<div class="col-md-3">
+<input type="email"
+class="form-control"
+name="email"
+placeholder="Email"
+required>
+</div>
+
+<div class="col-md-2">
+<input type="text"
+class="form-control"
+name="phone"
+placeholder="Phone"
+required>
+</div>
+
+<div class="col-md-2">
+<input type="text"
+class="form-control"
+name="subject"
+placeholder="Subject"
+required>
+</div>
+
+
+<div class="col-md-2">
+<button class="btn btn-success w-100" type="submit">
+Add Teacher
+</button>
+</div>
+
+</div>
+
+</form>
+
+<hr>
+
+<table class="table table-striped table-bordered mt-3">
+
+<thead class="table-primary">
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Phone</th>
+
+<th>Subject</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for teacher in teachers %}
+
+<tr>
+
+<td>{{ teacher.id }}</td>
+
+<td>{{ teacher.teacher_name }}</td>
+
+<td>{{ teacher.email }}</td>
+
+<td>{{ teacher.phone }}</td>
+
+<td>{{ teacher.subject }}</td>
+
+<td>
+    <a href="{{ url_for('delete_teacher', id=teacher.id) }}"
+       class="btn btn-danger btn-sm"
+       onclick="return confirm('Are you sure you want to delete this teacher?')">
+        Delete
+    </a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+{% endblock %}

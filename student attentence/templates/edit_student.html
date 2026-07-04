@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Student{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Edit Student</h2>
+
+<form method="POST">
+
+<div class="mb-3">
+<label>Roll Number</label>
+<input type="text" name="roll_no" value="{{ student.roll_no }}" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Name</label>
+<input type="text" name="name" value="{{ student.name }}" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Gender</label>
+<select name="gender" class="form-control">
+    <option value="Male" {% if student.gender == "Male" %}selected{% endif %}>Male</option>
+    <option value="Female" {% if student.gender == "Female" %}selected{% endif %}>Female</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label>Email</label>
+<input type="email" name="email" value="{{ student.email }}" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Phone</label>
+<input type="text" name="phone" value="{{ student.phone }}" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Branch</label>
+<input type="text" name="branch" value="{{ student.branch }}" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Year</label>
+<input type="text" name="year" value="{{ student.year }}" class="form-control" required>
+</div>
+
+<button type="submit" class="btn btn-success">
+    Update Student
+</button>
+
+<a href="{{ url_for('students') }}" class="btn btn-secondary">
+    Cancel
+</a>
+
+</form>
+
+</div>
+
+{% endblock %}
